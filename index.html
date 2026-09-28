@@ -2,38 +2,70 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>AgendaWeb · Jose Luis</title>
-    <link rel="stylesheet" href="estilos.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaWebP2 · Jose Luis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <form method="post" action="guardar.php" class="tarjeta">
-    <input type="text" name="titulo" placeholder="Título">
-    <input type="date" name="fecha">
-    <textarea name="descripcion"></textarea>
-    <button type="submit">Agregar evento</button>
-</form>
 
-<table>
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Fecha</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Reunión de equipo</td>
-                <td>2026-10-15</td>
-                <td>Revisión de los avances del proyecto AgendaWeb.</td>
-                <td>
-                    <button type="button">Editar</button>
-                    <button type="button">Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="contenedor-principal">
+        <header class="encabezado-app">
+            <h1>AgendaWeb</h1>
+            <p>Registra y organiza tus eventos y citas importantes</p>
+        </header>
+
+        <section class="tarjeta">
+            <h2>Nuevo Evento</h2>
+            <form method="post" action="guardar.php" class="formulario-evento">
+                <div class="grupo-campo">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ej. Reunión de proyecto" required>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="grupo-campo campo-completo">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" rows="3" placeholder="Agrega notas o detalles sobre el evento..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primario">Agregar evento</button>
+            </form>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Eventos Programados</h2>
+            <div class="contenedor-tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="texto-bold">Reunión de equipo</td>
+                            <td class="col-fecha">15/10/2026</td>
+                            <td>Revisión de los avances del proyecto AgendaWeb.</td>
+                            <td class="col-acciones">
+                                <button type="button" class="btn btn-secundario">Editar</button>
+                                <button type="button" class="btn btn-peligro">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
 </body>
 </html>
